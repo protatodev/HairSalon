@@ -24,46 +24,47 @@ namespace HairSalon.Controllers
         public ActionResult ViewAllPost()
         {
             string name = Request.Form["name"];
+            int stylistId = int.Parse(Request.Form["stylist"]);
 
-            Client newClient = new Client(name);
+            Client newClient = new Client(name, stylistId);
             newClient.Save();
 
             return RedirectToAction("ViewAll");
         }
 
-        [HttpGet("/stylist/{id}/update")]
+        [HttpGet("/client/{id}/update")]
         public ActionResult Update(int id)
         {
-            Stylist editStylist = Stylist.Find(id);
+            Client editClient = Client.Find(id);
 
-            return View(editStylist);
+            return View(editClient);
         }
 
-        [HttpPost("/stylist/{id}/update")]
+        [HttpPost("/client/{id}/update")]
         public ActionResult UpdatePost(int id)
         {
-            Stylist editStylist = Stylist.Find(id);
+            Client editClient = Client.Find(id);
             string name = Request.Form["new-name"];
-            int experience = int.Parse(Request.Form["new-exp"]);
+            int newStylistId = int.Parse(Request.Form["stylist"]);
 
-            editStylist.Edit(name, experience);
+            editClient.Edit(name, newStylistId);
 
             return RedirectToAction("ViewAll");
         }
 
-        [HttpGet("/stylist/{id}/details")]
+        [HttpGet("/client/{id}/details")]
         public ActionResult Details(int id)
         {
-            Stylist stylistDetails = Stylist.Find(id);
+            Client clientDetails = Client.Find(id);
 
-            return View(stylistDetails);
+            return View(clientDetails);
         }
 
-        [HttpGet("/stylist/{id}/delete")]
+        [HttpGet("/client/{id}/delete")]
         public ActionResult Delete(int id)
         {
-            Stylist deleteStylist = Stylist.Find(id);
-            deleteStylist.Delete();
+            Client deleteClient = Client.Find(id);
+            deleteClient.Delete();
 
             return RedirectToAction("ViewAll");
         }

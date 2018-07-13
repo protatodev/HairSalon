@@ -1,5 +1,25 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "_Layout";
 }
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="jumbotron">
+            <h1>@Model.Name</h1>
+        </div>
+        <a href="/new-client" type="button" class="btn btn-primary">Add New Client</a>
+        <a href="/" type="button" class="btn btn-primary">Return to Home</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <h3>@Model.Name's Page</h3>
+        <hr /><br />
+        <h4>@Model.Name</h4>
+        <h5><strong>Stylist:</strong></h5>
+        <p>@Model.GetStylist().Name</p>
+        <a href="/client/@Model.Id/update" type="button" class="btn btn-primary">Edit</a>
+        <a href="/client/@Model.Id/delete" type="button" class="btn btn-danger">Delete</a>
+        <hr />
+    </div>
+</div>

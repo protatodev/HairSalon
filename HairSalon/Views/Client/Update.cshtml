@@ -20,6 +20,17 @@
                 <label for="new-name">Name:</label>
                 <input type="text" name="new-name" value="@Model.Name">
             </div>
+            <div class="form-group">
+                <label for="name">Select New Stylist</label>
+                <select name="stylist">
+                    @foreach (var stylist in Model.GetStylistList())
+                    {
+                        int i = 1;
+                        <option value="@i">@stylist.Name</option>
+                        i++;
+                    }
+                </select>
+            </div>
             <button type="submit" class="btn btn-primary">Edit</button>
             <a href="/" type="button" class="btn btn-primary">Return to Home</a>
         </form>
