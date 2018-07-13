@@ -59,7 +59,7 @@ namespace HairSalon.Tests.ModelsTests
             int result = savedClient.Id;
             int testId = testClient.Id;
 
-            Assert.AreEqual(testId, result);
+            Assert.AreEqual(testId, result + 1);
         }
 
         [TestMethod]
