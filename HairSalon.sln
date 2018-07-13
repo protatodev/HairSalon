@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HairSalon", "HairSalon\HairSalon.csproj", "{85C7874F-2575-4F1C-82F7-FED5598B0FED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HairSalon.Tests", "HairSalon.Tests\HairSalon.Tests.csproj", "{DC3456D4-C3F0-4A6D-A283-90708E627050}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HairSalon.Tests", "HairSalon.Tests\HairSalon.Tests.csproj", "{DC3456D4-C3F0-4A6D-A283-90708E627050}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

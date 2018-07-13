@@ -14,12 +14,22 @@ namespace HairSalon.Models
 
         public Client(string name, int id = 0)
         {
-
+            Name = name;
+            Id = id;
         }
 
-        public override bool Equals(System.Object otherStylist)
+        public override bool Equals(System.Object otherClient)
         {
-
+            if (!(otherClient is Client))
+            {
+                return false;
+            }
+            else
+            {
+                Client newClient = (Client)otherClient;
+                bool nameEquality = (this.Name == newClient.Name);
+                return (nameEquality);
+            }
         }
 
         public override int GetHashCode()
@@ -29,7 +39,16 @@ namespace HairSalon.Models
 
         public static void DeleteAll()
         {
-
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+            var cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"DELETE FROM clients;";
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
         }
 
         public static Client Find(int id)

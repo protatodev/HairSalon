@@ -31,8 +31,8 @@ namespace HairSalon.Tests.ModelsTests
         [TestMethod]
         public void Equals_ReturnsTrueForSameName_Stylist()
         {
-            Stylist firstClass = new Stylist("Warrior");
-            Stylist secondClass = new Stylist("Warrior");
+            Stylist firstClass = new Stylist("Warrior", 0);
+            Stylist secondClass = new Stylist("Warrior", 0);
 
             Assert.AreEqual(firstClass, secondClass);
         }
@@ -40,7 +40,7 @@ namespace HairSalon.Tests.ModelsTests
         [TestMethod]
         public void Save_SavesStylistToDatabase_StylistList()
         {
-            Stylist testClass = new Stylist("Mage");
+            Stylist testClass = new Stylist("Mage", 0);
             testClass.Save();
 
             List<Stylist> result = Stylist.GetAll();
@@ -53,7 +53,7 @@ namespace HairSalon.Tests.ModelsTests
         [TestMethod]
         public void Save_DatabaseAssignsIdToStylist_Id()
         {
-            Stylist testClass = new Stylist("Hunter");
+            Stylist testClass = new Stylist("Hunter", 0);
             testClass.Save();
 
             Stylist savedClass = Stylist.GetAll()[0];
@@ -68,7 +68,7 @@ namespace HairSalon.Tests.ModelsTests
         [TestMethod]
         public void Find_FindsStylistInDatabase_Stylist()
         {
-            Stylist testClass = new Stylist("Warlock");
+            Stylist testClass = new Stylist("Warlock", 0);
             testClass.Save();
 
             Stylist foundClass = Stylist.Find(testClass.Id);
