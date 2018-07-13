@@ -14,7 +14,7 @@ namespace HairSalon.Models
         public int Experience { get; set; }
         public int Id { get; set; }
         
-        public Stylist(string name, int client_id, int experience = 0, int id = 0)
+        public Stylist(string name, int client_id = 0, int experience = 0, int id = 0)
         {
             Name = name;
             ClientId = client_id;

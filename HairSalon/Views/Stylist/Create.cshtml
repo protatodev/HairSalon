@@ -4,24 +4,14 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <form action="/view-all" method="post">
+        <form action="/view-all-stylists" method="post">
             <div class="form-group">
-                <label for="name">Enter Character Name</label>
+                <label for="name">Enter Stylist Name</label>
                 <input type="text" id="name" name="name" />
             </div>
             <div class="form-group">
-                <label for="new-class">Select Class</label>
-                <select name="new-class">
-                    <option value="1">Warrior</option>
-                    <option value="2">Mage</option>
-                    <option value="3">Warlock</option>
-                    <option value="4">Hunter</option>
-                    <option value="5">Rogue</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="level">Enter Character's Level</label>
-                <input type="number" id="level" name="level" />
+                <label for="exp">Enter Stylist Experience</label>
+                <input type="number" id="exp" name="exp" />
             </div>
             <button class="btn btn-primary" type="submit">Add</button>
             <a href="/" type="button" class="btn btn-primary">Return to Home</a>

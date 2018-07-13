@@ -5,23 +5,21 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="jumbotron">
-            <h1>Character Database</h1>
+            <h1>Current Salon Stylists</h1>
         </div>
-        <a href="/add-character" type="button" class="btn btn-primary">Add New Character</a>
+        <a href="/new-stylist" type="button" class="btn btn-primary">Add New Stylist</a>
         <a href="/" type="button" class="btn btn-primary">Return to Home</a>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <h3>Current Characters:</h3>
+        <h3>Current Stylists</h3>
         @{
-            foreach (var character in Model)
+            foreach (var stylist in Model)
             {
-                <h4>@character.Name</h4>
-                <p>@character.GetClass().Name</p>
-                <p>@character.Level</p>
-                <a href="/character/@character.Id/update" type="button" class="btn btn-primary">Edit</a>
-                <a href="/character/@character.Id/delete" type="button" class="btn btn-danger">Delete</a>
+                <h4>@stylist.Name</h4>
+                <a href="/stylist/@stylist.Id/update" type="button" class="btn btn-primary">Edit</a>
+                <a href="/stylist/@stylist.Id/delete" type="button" class="btn btn-danger">Delete</a>
                 <hr />
             }
         }
