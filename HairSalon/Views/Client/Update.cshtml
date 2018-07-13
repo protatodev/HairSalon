@@ -7,22 +7,18 @@
         <div class="jumbotron">
             <h1>@Model.Name</h1>
         </div>
-        <a href="/new-stylist" type="button" class="btn btn-primary">Add New Stylist</a>
+        <a href="/new-client" type="button" class="btn btn-primary">Add New Client</a>
         <a href="/" type="button" class="btn btn-primary">Return to Home</a>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <h2><a href="/stylist/@Model.Id/details">@Model.Name</a></h2>
+        <h2><a href="/client/@Model.Id/details">@Model.Name</a></h2>
         <hr />
-        <form action="/stylist/@Model.Id/update" method="post">
+        <form action="/client/@Model.Id/update" method="post">
             <div class="form-group">
                 <label for="new-name">Name:</label>
                 <input type="text" name="new-name" value="@Model.Name">
-            </div>
-            <div class="form-group">
-                <label for="new-name">Experience:</label>
-                <input type="number" name="new-exp" value="@Model.Experience">
             </div>
             <button type="submit" class="btn btn-primary">Edit</button>
             <a href="/" type="button" class="btn btn-primary">Return to Home</a>

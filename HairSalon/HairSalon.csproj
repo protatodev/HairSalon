@@ -12,4 +12,8 @@
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Client\" />
+  </ItemGroup>
+
 </Project>

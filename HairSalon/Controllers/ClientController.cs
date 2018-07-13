@@ -6,28 +6,27 @@ using HairSalon.Models;
 
 namespace HairSalon.Controllers
 {
-    public class StylistController : Controller
+    public class ClientController : Controller
     {
-        [HttpGet("/new-stylist")]
+        [HttpGet("/new-client")]
         public ActionResult Create()
         {
             return View();
         }
 
-        [HttpGet("/view-all-stylists")]
+        [HttpGet("/view-all-clients")]
         public ActionResult ViewAll()
         {
-            return View(Stylist.GetAll());
+            return View(Client.GetAll());
         }
 
-        [HttpPost("/view-all-stylists")]
+        [HttpPost("/view-all-clients")]
         public ActionResult ViewAllPost()
         {
             string name = Request.Form["name"];
-            int experience = int.Parse(Request.Form["exp"]);
 
-            Stylist newStylist = new Stylist(name, 0, experience);
-            newStylist.Save();
+            Client newClient = new Client(name);
+            newClient.Save();
 
             return RedirectToAction("ViewAll");
         }

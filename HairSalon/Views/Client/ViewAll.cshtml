@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="jumbotron">
+            <h1>Current Salon Clients</h1>
+        </div>
+        <a href="/new-client" type="button" class="btn btn-primary">Add New Client</a>
+        <a href="/" type="button" class="btn btn-primary">Return to Home</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Current Clients</h3>
+        @{
+            foreach (var client in Model)
+            {
+                <h4><a href="/client/@client.Id/details">@client.Name</a></h4>
+                <a href="/client/@client.Id/update" type="button" class="btn btn-primary">Edit</a>
+                <a href="/client/@client.Id/delete" type="button" class="btn btn-danger">Delete</a>
+                <hr />
+            }
+        }
+    </div>
+</div>
