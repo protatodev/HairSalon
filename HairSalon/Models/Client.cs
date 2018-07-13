@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using MySql.Data.MySqlClient;
+using HairSalon;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace HairSalon.Models
 {
-    class Client
+    public class Client
     {
     }
 }
