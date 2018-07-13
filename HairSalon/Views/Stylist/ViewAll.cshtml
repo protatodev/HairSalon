@@ -17,7 +17,7 @@
         @{
             foreach (var stylist in Model)
             {
-                <h4>@stylist.Name</h4>
+                <h4><a href="/stylist/@stylist.Id/details">@stylist.Name</a></h4>
                 <a href="/stylist/@stylist.Id/update" type="button" class="btn btn-primary">Edit</a>
                 <a href="/stylist/@stylist.Id/delete" type="button" class="btn btn-danger">Delete</a>
                 <hr />

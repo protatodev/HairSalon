@@ -24,7 +24,7 @@ namespace HairSalon.Controllers
         public ActionResult ViewAllPost()
         {
             string name = Request.Form["name"];
-            int experience = int.Parse(Request.Form["experience"]);
+            int experience = int.Parse(Request.Form["exp"]);
 
             Stylist newStylist = new Stylist(name, 0, experience);
             newStylist.Save();
@@ -32,5 +32,32 @@ namespace HairSalon.Controllers
             return RedirectToAction("ViewAll");
         }
 
+        [HttpGet("/stylist/{id}/update")]
+        public ActionResult Update(int id)
+        {
+            Stylist editStylist = Stylist.Find(id);
+
+            return View(editStylist);
+        }
+
+        [HttpPost("/stylist/{id}/update")]
+        public ActionResult UpdatePost(int id)
+        {
+            Stylist editStylist = Stylist.Find(id);
+            string name = Request.Form["new-name"];
+            int experience = int.Parse(Request.Form["new-exp"]);
+
+            editStylist.Edit(name, experience);
+
+            return RedirectToAction("ViewAll");
+        }
+
+        [HttpGet("/stylist/{id}/details")]
+        public ActionResult Details(int id)
+        {
+            Stylist stylistDetails = Stylist.Find(id);
+
+            return View(stylistDetails);
+        }
     }
 }
