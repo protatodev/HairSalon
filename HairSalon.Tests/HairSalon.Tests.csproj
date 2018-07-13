@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ControllerTests\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\HairSalon\HairSalon.csproj" />
   </ItemGroup>
 

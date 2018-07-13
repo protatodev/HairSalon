@@ -1,5 +1,30 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "_Layout";
 }
+
+<div class="row">
+    <div class="col-sm-12">
+        <form action="/view-all" method="post">
+            <div class="form-group">
+                <label for="name">Enter Character Name</label>
+                <input type="text" id="name" name="name" />
+            </div>
+            <div class="form-group">
+                <label for="new-class">Select Class</label>
+                <select name="new-class">
+                    <option value="1">Warrior</option>
+                    <option value="2">Mage</option>
+                    <option value="3">Warlock</option>
+                    <option value="4">Hunter</option>
+                    <option value="5">Rogue</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="level">Enter Character's Level</label>
+                <input type="number" id="level" name="level" />
+            </div>
+            <button class="btn btn-primary" type="submit">Add</button>
+            <a href="/" type="button" class="btn btn-primary">Return to Home</a>
+        </form>
+    </div>
+</div>
