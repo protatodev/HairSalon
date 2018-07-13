@@ -153,11 +153,11 @@ namespace HairSalon.Models
             conn.Open();
 
             var cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"SELECT * FROM stylists WHERE client_id = @thisId;";
+            cmd.CommandText = @"SELECT * FROM stylists WHERE id = @thisId;";
 
             MySqlParameter thisId = new MySqlParameter();
             thisId.ParameterName = "@thisId";
-            thisId.Value = Id;
+            thisId.Value = StylistId;
             cmd.Parameters.Add(thisId);
 
             var rdr = cmd.ExecuteReader() as MySqlDataReader;

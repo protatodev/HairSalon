@@ -25,9 +25,7 @@
                 <select name="stylist">
                     @foreach (var stylist in Model.GetStylistList())
                     {
-                        int i = 1;
-                        <option value="@i">@stylist.Name</option>
-                        i++;
+                        <option value="@stylist.Id">@stylist.Name</option>
                     }
                 </select>
             </div>
