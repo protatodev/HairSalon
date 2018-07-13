@@ -2,6 +2,15 @@
     Layout = "_Layout";
 }
 
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="jumbotron">
+            <h1>Happy's Hair Salon</h1>
+            <p>Cutting edge hair products and services!</p>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-sm-12">
         <form action="/view-all-clients" method="post">
@@ -12,7 +21,7 @@
             <div class="form-group">
                 <label for="name">Select A Stylist</label>
                 <select name="stylist">
-                    @foreach(var stylist in Model)
+                    @foreach (var stylist in Model)
                     {
                         <option value="@stylist.Id">@stylist.Name</option>
                     }

@@ -11,7 +11,14 @@ namespace HairSalon.Controllers
         [HttpGet("/new-client")]
         public ActionResult Create()
         {
-            return View(Stylist.GetAll());
+            if (Stylist.GetAll() is null)
+            {
+                return View("Error");
+            }
+            else
+            {
+                return View(Stylist.GetAll());
+            }
         }
 
         [HttpGet("/view-all-clients")]
