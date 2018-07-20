@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jul 13, 2018 at 09:58 PM
+-- Generation Time: Jul 20, 2018 at 08:53 PM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.2.1
 
@@ -30,8 +30,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `clients` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `stylist_id` int(11) DEFAULT NULL
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `specialties`
+--
+
+CREATE TABLE `specialties` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -43,9 +53,45 @@ CREATE TABLE `clients` (
 CREATE TABLE `stylists` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `experience` int(11) NOT NULL,
+  `experience` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stylists_clients`
+--
+
+CREATE TABLE `stylists_clients` (
+  `id` int(11) NOT NULL,
+  `stylist_id` int(11) NOT NULL,
   `client_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stylists_specialties`
+--
+
+CREATE TABLE `stylists_specialties` (
+  `id` int(11) NOT NULL,
+  `specialty_id` int(11) NOT NULL,
+  `stylist_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `stylists_specialties`
+--
+
+INSERT INTO `stylists_specialties` (`id`, `specialty_id`, `stylist_id`) VALUES
+(12, 23, 26),
+(13, 27, 27),
+(14, 28, 28),
+(15, 29, 33),
+(16, 33, 37),
+(17, 34, 38),
+(18, 35, 43);
 
 --
 -- Indexes for dumped tables
@@ -58,9 +104,27 @@ ALTER TABLE `clients`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `specialties`
+--
+ALTER TABLE `specialties`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `stylists`
 --
 ALTER TABLE `stylists`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `stylists_clients`
+--
+ALTER TABLE `stylists_clients`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `stylists_specialties`
+--
+ALTER TABLE `stylists_specialties`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -71,12 +135,27 @@ ALTER TABLE `stylists`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+--
+-- AUTO_INCREMENT for table `specialties`
+--
+ALTER TABLE `specialties`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `stylists`
 --
 ALTER TABLE `stylists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+--
+-- AUTO_INCREMENT for table `stylists_clients`
+--
+ALTER TABLE `stylists_clients`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `stylists_specialties`
+--
+ALTER TABLE `stylists_specialties`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
