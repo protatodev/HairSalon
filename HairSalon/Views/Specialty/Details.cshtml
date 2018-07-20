@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="jumbotron">
+            <h1>@Model.Name</h1>
+        </div>
+        <a href="/specialty/add" type="button" class="btn btn-primary">Add New Specialty</a>
+        <a href="/" type="button" class="btn btn-primary">Return to Home</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <h3>@Model.Name</h3>
+        <hr /><br />
+        <h4>@Model.Name</h4>
+        <h5><strong>Stylists:</strong></h5>
+        @foreach (var stylist in Model.GetStylists())
+        {
+            <a href="~/stylist/@stylist.id/details"><p>@stylist.Name</p></a>
+        }
+        <hr />
+        <a href="/specialty/@Model.Id/update" type="button" class="btn btn-primary">Edit</a>
+        <a href="/specialty/@Model.Id/delete" type="button" class="btn btn-danger">Delete</a>
+    </div>
+</div>

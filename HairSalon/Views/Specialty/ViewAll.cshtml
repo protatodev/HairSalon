@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="jumbotron">
+            <h1>Current Salon Specialties</h1>
+        </div>
+        <a href="/specialty/add" type="button" class="btn btn-primary">Add New Specialty</a>
+        <a href="/" type="button" class="btn btn-primary">Return to Home</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Current Specialties</h3>
+        @{
+            foreach (var specialty in Model)
+            {
+                <h4><a href="/specialty/@specialty.Id/details">@specialty.Name</a></h4>
+                <a href="/specialty/@specialty.Id/update" type="button" class="btn btn-primary">Edit</a>
+                <a href="/specialty/@specialty.Id/delete" type="button" class="btn btn-danger">Delete</a>
+                <hr />
+            }
+        }
+    </div>
+</div>

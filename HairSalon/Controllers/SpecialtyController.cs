@@ -8,6 +8,10 @@ namespace HairSalon.Controllers
 {
     public class SpecialtyController : Controller
     {
-
+        [HttpGet("/specialties")]
+        public ActionResult ViewAll()
+        {
+            return View();
+        }
     }
 }
