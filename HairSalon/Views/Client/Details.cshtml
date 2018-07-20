@@ -13,11 +13,10 @@
     <div class="col-sm-12">
         <h3>@Model.Name's Page</h3>
         <hr /><br />
-        <h4>@Model.Name</h4>
         <h5><strong>Stylists:</strong></h5>
         @foreach (var stylist in Model.GetStylists())
         {
-            <a href="~/stylist/@stylist.Id/details"><p>@stylist.Name</p></a>
+            <a href="~/stylist/@stylist.Id/details"><p>@stylist.Name</p></a><br />
         }
         <hr />
         <a href="/client/@Model.Id/update" type="button" class="btn btn-primary">Edit</a>
