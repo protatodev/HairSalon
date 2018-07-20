@@ -48,13 +48,17 @@ namespace HairSalon.Controllers
         }
 
         [HttpPost("/client/{id}/update")]
-        public ActionResult UpdatePost(int id)
+        public ActionResult UpdatePost(int id, int newStylistId)
         {
             Client editClient = Client.Find(id);
             string name = Request.Form["new-name"];
-            int newStylistId = int.Parse(Request.Form["stylist"]);
+            editClient.Edit(name);
 
-            editClient.Edit(name, newStylistId);
+            if(newStylistId > 0)
+            {
+                Stylist newStylist = Stylist.Find(newStylistId);
+                editClient.AddStylist(newStylist);
+            }
 
             return RedirectToAction("ViewAll");
         }

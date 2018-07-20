@@ -42,7 +42,7 @@ namespace HairSalon.Models
             MySqlConnection conn = DB.Connection();
             conn.Open();
             var cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"DELETE FROM clients;";
+            cmd.CommandText = @"DELETE FROM clients; DELETE FROM stylists_clients;";
             cmd.ExecuteNonQuery();
             conn.Close();
             if (conn != null)
@@ -168,7 +168,7 @@ namespace HairSalon.Models
             conn.Open();
             var cmd = conn.CreateCommand() as MySqlCommand;
             cmd.CommandText = @"SELECT stylists.* FROM clients
-                                JOIN stylists_clients ON (client.id = stylists_clients.client_id)
+                                JOIN stylists_clients ON (clients.id = stylists_clients.client_id)
                                 JOIN stylists ON (stylists_clients.stylist_id = stylists.id)
                                 WHERE clients.id = @ClientId;";
 
@@ -250,7 +250,7 @@ namespace HairSalon.Models
             }
         }
 
-        public List<Stylist> GetStylistList()
+        public List<Stylist> GetAllStylists()
         {
             return Stylist.GetAll();
         }

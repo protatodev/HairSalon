@@ -27,7 +27,7 @@ namespace HairSalon.Controllers
             string name = Request.Form["name"];
             int experience = int.Parse(Request.Form["exp"]);
 
-            Stylist newStylist = new Stylist(name, 0, experience);
+            Stylist newStylist = new Stylist(name, experience);
             newStylist.Save();
 
             return RedirectToAction("ViewAll");

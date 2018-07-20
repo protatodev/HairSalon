@@ -10,7 +10,7 @@ namespace HairSalon.ViewModels
 {
     public class StylistViewModel
     {
-        Stylist stylist { get; set; }
+        public Stylist stylist { get; set; }
 
         public StylistViewModel(Stylist stylist)
         {
