@@ -5,3 +5,12 @@
 form {
     display: inline-block;
 }
+
+.table {
+    display: table;
+    margin: 0 auto;
+}
+
+p {
+    display: inline-block;
+}

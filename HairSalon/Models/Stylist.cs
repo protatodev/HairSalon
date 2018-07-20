@@ -75,6 +75,60 @@ namespace HairSalon.Models
             }
         }
 
+        public void RemoveClient(Client existingClient)
+        {
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+
+            var cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"DELETE FROM stylists_clients WHERE stylist_id = @searchId AND client_id = @ClientId;";
+
+            MySqlParameter searchId = new MySqlParameter();
+            searchId.ParameterName = "@searchId";
+            searchId.Value = Id;
+            cmd.Parameters.Add(searchId);
+
+            MySqlParameter client_id = new MySqlParameter();
+            client_id.ParameterName = "@ClientId";
+            client_id.Value = existingClient.Id;
+            cmd.Parameters.Add(client_id);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
+        }
+
+        public void RemoveSpecialty(Specialty existingSpecialty)
+        {
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+
+            var cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"DELETE FROM stylists_specialties WHERE stylist_id = @searchId AND specialty_id = @SpecialtyId;";
+
+            MySqlParameter searchId = new MySqlParameter();
+            searchId.ParameterName = "@searchId";
+            searchId.Value = Id;
+            cmd.Parameters.Add(searchId);
+
+            MySqlParameter specialty_id = new MySqlParameter();
+            specialty_id.ParameterName = "@SpecialtyId";
+            specialty_id.Value = existingSpecialty.Id;
+            cmd.Parameters.Add(specialty_id);
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
+        }
+
         public void Edit(string newName, int newExp)
         {
             MySqlConnection conn = DB.Connection();

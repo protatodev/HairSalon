@@ -8,6 +8,7 @@
         <a href="/" type="button" class="btn btn-primary">Return to Home</a>
     </div>
 </div>
+<hr />
 <div class="row">
     <div class="col-sm-12">
         <h3>@Model.Name's Page</h3>
@@ -16,15 +17,17 @@
         <h5><strong>Clients:</strong></h5>
         @foreach (var client in Model.GetClients())
         {
-            <a href="~/client/@client.Id/details"><p>@client.Name</p></a>
+            <a href="~/client/@client.Id/details"><p>@client.Name</p></a> <a href="/stylist/@Model.Id/client/@client.Id/remove" class="btn-sm btn-danger">Remove</a><br />
         }
+        <hr />
         <h5><strong>Specialties:</strong></h5>
         @foreach (var specialty in Model.GetSpecialties())
         {
-            <a href="~/specialty/@specialty.Id/details"><p>@specialty.Name</p></a>
+            <a href="~/specialty/@specialty.Id/details"><p>@specialty.Name</p></a> <a href="/stylist/@Model.Id/specialty/@specialty.Id/remove" class="btn-sm btn-danger">Remove</a><br />
         }
+        <hr />
         <h5><strong>Experience:</strong></h5>
-        <p>@Model.Experience</p>
+        <p>@Model.Experience</p><br />
         <a href="/stylist/@Model.Id/update" type="button" class="btn btn-primary">Edit</a>
         <a href="/stylist/@Model.Id/delete" type="button" class="btn btn-danger">Delete</a>
         <hr />

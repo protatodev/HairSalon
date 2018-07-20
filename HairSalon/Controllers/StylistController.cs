@@ -89,5 +89,25 @@ namespace HairSalon.Controllers
 
             return RedirectToAction("ViewAll");
         }
+
+        [HttpGet("/stylist/{id}/client/{clientId}/remove")]
+        public ActionResult RemoveClient(int id, int clientId)
+        {
+            Stylist existingStylist = Stylist.Find(id);
+            Client existingClient = Client.Find(clientId);
+            existingStylist.RemoveClient(existingClient);
+
+            return RedirectToAction("Details", id);
+        }
+
+        [HttpGet("/stylist/{id}/specialty/{specialtyId}/remove")]
+        public ActionResult RemoveSpecialty(int id, int specialtyId)
+        {
+            Stylist existingStylist = Stylist.Find(id);
+            Specialty existingSpecialty = Specialty.Find(specialtyId);
+            existingStylist.RemoveSpecialty(existingSpecialty);
+
+            return RedirectToAction("Details", id);
+        }
     }
 }
