@@ -1,12 +1,12 @@
 # Hair Salon
 
-#### Epicodus C# Week 3 Hair Salon Project, 7.13.2018
+#### Epicodus C# Week 4 Hair Salon Project, 7.20.2018
 
 #### By Protatodev (Thad Donaghue)
 
 ## Description
 
-This website was written using C# .Net Core. The website demonstrates a simple Hair Salon admin portal. The employee can manage stylists and clients and can manipulate, add and delete each as necessary. All records are saved on a database using MySQL allowing for simple access.
+This website was written using C# .Net Core. The website demonstrates a simple Hair Salon admin portal. The employee can manage stylists and clients and can manipulate, add and delete each as necessary. This version builds on the previous version by adding many to many relationships and adding a 'specialty' model for stylists. All records are saved on a database using MySQL allowing for simple access.
 
 ## Specs
 
@@ -15,15 +15,22 @@ This website was written using C# .Net Core. The website demonstrates a simple H
 | Make basic splash page with buttons allowing the user to click to navigate | *No input* | *No output* | Very simple basic view created with a Home controller to setup a default landing page. Simple to implement |
 | User clicks 'View Stylists' button and a new page is displayed with all of the salon's current stylists listed | *None* | *Page displaying stylists* | Simple page that retrieves the stylists from the database |
 | User clicks 'View Clients' button and a new page is displayed with all of the salon's current clients listed | *None* | *Page displaying clients* | Simple page that retrieves the clients from the database |
+| User clicks 'View Specialties' button and a new page is displayed with all of the salon's current specialties listed | *None* | *Page displaying specialties* | Simple page that retrieves the specialties from the database |
 | User clicks 'Add Stylist' button and a new page is displayed with a form to add a new stylist | *Name* *Experience* | *Adds the entry to the database and displays the page of all stylists* | Simple input gathering page for adding stylists |
 | User clicks 'Add Client' button and a new page is displayed with a form to add a new client | *Name* *Stylist* | *Adds the entry to the database and displays the page of all clients* | Simple input gathering page for adding clients |
+| User clicks 'Add Specialty' button and a new page is displayed with a form to add a new specialty | *Name* | *Adds the entry to the database and displays the page of all specialties* | Simple input gathering page for adding clients |
 | Add form validation | *No input received in required field* | *Must fill out this field* | Moderately difficult to implement |
-| Add functionality to update a stylist record | *Edit name and/or experience* | *Updates shown in new page* | Moderately difficult to implement |
-| Add functionality to update a client record | *Edit name and/or stylist* | *Updates shown in new page* | Moderately difficult to implement |
+| Add functionality to update a stylist record | *Edit name and/or experience, add clients and/or specialties* | *Updates shown in new page* | Moderately difficult to implement |
+| Add functionality to update a client record | *Edit name and/or stylists* optionally add additional stylists | *Updates shown in new page* | Moderately difficult to implement |
 | Add functionality to delete a client record | *Click Delete* | *Database updated* | Moderately difficult to implement |
 | Add functionality to delete a stylist record | *Click Delete* | *Database updated* | Moderately difficult to implement |
+| Add functionality to delete a specialty record | *Click Delete* | *Database updated* | Moderately difficult to implement |
+| Add functionality to delete all client records | *Click Delete All Clients* | *Database updated* | Moderately difficult to implement |
+| Add functionality to delete all stylist records | *Click Delete All Stylists* | *Database updated* | Moderately difficult to implement |
+| Add functionality to delete all specialty records | *Click Delete All Specialties* | *Database updated* | Moderately difficult to implement |
 | Add Details page for clients that shows various information and current stylists they are assigned to | *None* | *Details page* | Difficult to implement |
-| Add Details page for stylists that shows various information and current clients they are serving | *None* | *Details page* | Difficult to implement |
+| Add Details page for stylists that shows various information and current clients they are serving and current specialties | *None* | *Details page* | Difficult to implement |
+| Add Details page for stylists that shows various information and current stylists they are attributed to | *None* | *Details page* | Difficult to implement |
 
 ## Setup on OSX / Windows
 
