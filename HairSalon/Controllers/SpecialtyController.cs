@@ -66,7 +66,7 @@ namespace HairSalon.Controllers
             return RedirectToAction("ViewAll");
         }
 
-        [HttpGet("/specialty/delete")]
+        [HttpGet("/specialties/delete")]
         public ActionResult DeleteAll()
         {
             Specialty.DeleteAll();

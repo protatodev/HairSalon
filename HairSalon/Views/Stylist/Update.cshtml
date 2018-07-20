@@ -30,7 +30,10 @@
                     <option value=0>None</option>
                     @foreach (var client in Model.GetAllClients())
                     {
-                        <option value="@client.Id">@client.Name</option>
+                        @if(!(Model.stylist.GetClients().Contains(client)))
+                        {
+                          <option value="@client.Id">@client.Name</option>
+                        }
                     }
                 </select>
             </div>
@@ -40,7 +43,10 @@
                     <option value=0>None</option>
                     @foreach (var specialty in Model.GetAllSpecialties())
                     {
-                        <option value="@specialty.Id">@specialty.Name</option>
+                        @if(!(Model.stylist.GetSpecialties().Contains(specialty)))
+                        {
+                            <option value="@specialty.Id">@specialty.Name</option>
+                        }
                     }
                 </select>
             </div>

@@ -11,7 +11,7 @@ namespace HairSalon.Controllers
         [HttpGet("/client/add")]
         public ActionResult Create()
         {
-            if (Stylist.GetAll() is null)
+            if (Stylist.GetAll().Count == 0)
             {
                 return View("Error");
             }
@@ -35,6 +35,9 @@ namespace HairSalon.Controllers
 
             Client newClient = new Client(name, stylistId);
             newClient.Save();
+
+            Stylist existingStylist = Stylist.Find(stylistId);
+            newClient.AddStylist(existingStylist);
 
             return RedirectToAction("ViewAll");
         }
