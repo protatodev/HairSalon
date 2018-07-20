@@ -5,25 +5,39 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="jumbotron">
-            <h1>@Model.Name</h1>
+            <h1>@Model.stylist.Name</h1>
         </div>
-        <a href="/new-stylist" type="button" class="btn btn-primary">Add New Stylist</a>
+        <a href="/stylist/add" type="button" class="btn btn-primary">Add New Stylist</a>
         <a href="/" type="button" class="btn btn-primary">Return to Home</a>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <h2><a href="/stylist/@Model.Id/details">@Model.Name</a></h2>
+        <h2><a href="/stylist/@Model.stylist.Id/details">@Model.stylist.Name</a></h2>
         <hr />
-        <form action="/stylist/@Model.Id/update" method="post">
+        <form action="/stylist/@Model.stylist.Id/update" method="post">
             <div class="form-group">
                 <label for="new-name">Name:</label>
-                <input type="text" name="new-name" value="@Model.Name" required>
+                <input type="text" name="new-name" value="@Model.stylist.Name" required>
             </div>
             <div class="form-group">
                 <label for="new-name">Experience:</label>
-                <input type="number" name="new-exp" value="@Model.Experience" required>
+                <input type="number" name="new-exp" value="@Model.stylist.Experience" required>
             </div>
+            <h6>(Optional) Add New Client To Stylist</h6>
+            <select name="newClient">
+                @foreach (var client in Model.GetAllClients())
+                {
+                    <option value="@client.Id">@client.Name</option>
+                }
+            </select>
+            <h6>(Optional) Add New Specialty To Stylist</h6>
+            <select name="newSpecialty" required>
+                @foreach (var specialty in Model.GetAllSpecialties())
+                {
+                    <option value="@specialty.Id">@specialty.Name</option>
+                }
+            </select>
             <button type="submit" class="btn btn-primary">Edit</button>
             <a href="/" type="button" class="btn btn-primary">Return to Home</a>
         </form>

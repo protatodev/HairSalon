@@ -8,19 +8,19 @@ namespace HairSalon.Controllers
 {
     public class StylistController : Controller
     {
-        [HttpGet("/new-stylist")]
+        [HttpGet("/stylist/add")]
         public ActionResult Create()
         {
             return View();
         }
 
-        [HttpGet("/view-all-stylists")]
+        [HttpGet("/stylists")]
         public ActionResult ViewAll()
         {
             return View(Stylist.GetAll());
         }
 
-        [HttpPost("/view-all-stylists")]
+        [HttpPost("/stylists")]
         public ActionResult ViewAllPost()
         {
             string name = Request.Form["name"];
@@ -65,6 +65,14 @@ namespace HairSalon.Controllers
         {
             Stylist deleteStylist = Stylist.Find(id);
             deleteStylist.Delete();
+
+            return RedirectToAction("ViewAll");
+        }
+
+        [HttpGet("/stylists/delete")]
+        public ActionResult DeleteAll()
+        {
+            Stylist.DeleteAll();
 
             return RedirectToAction("ViewAll");
         }

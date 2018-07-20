@@ -8,7 +8,7 @@ namespace HairSalon.Controllers
 {
     public class ClientController : Controller
     {
-        [HttpGet("/new-client")]
+        [HttpGet("/client/add")]
         public ActionResult Create()
         {
             if (Stylist.GetAll() is null)
@@ -21,13 +21,13 @@ namespace HairSalon.Controllers
             }
         }
 
-        [HttpGet("/view-all-clients")]
+        [HttpGet("/clients")]
         public ActionResult ViewAll()
         {
             return View(Client.GetAll());
         }
 
-        [HttpPost("/view-all-clients")]
+        [HttpPost("/clients")]
         public ActionResult ViewAllPost()
         {
             string name = Request.Form["name"];
@@ -72,6 +72,14 @@ namespace HairSalon.Controllers
         {
             Client deleteClient = Client.Find(id);
             deleteClient.Delete();
+
+            return RedirectToAction("ViewAll");
+        }
+
+        [HttpGet("/clients/delete")]
+        public ActionResult DeleteAll()
+        {
+            Client.DeleteAll();
 
             return RedirectToAction("ViewAll");
         }
