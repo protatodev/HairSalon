@@ -23,7 +23,10 @@
                     <option value=0>None</option>
                     @foreach (var stylist in Model.GetAllStylists())
                     {
-                        <option value="@stylist.Id">@stylist.Name</option>
+                        @if (!(Model.GetStylists().Contains(stylist)))
+                        {
+                            <option value="@stylist.Id">@stylist.Name</option>
+                        }
                     }
                 </select>
             </div>

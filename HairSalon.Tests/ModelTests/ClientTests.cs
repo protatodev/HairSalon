@@ -73,5 +73,33 @@ namespace HairSalon.Tests.ModelsTests
 
             Assert.AreEqual(testClient, foundClient);
         }
+
+        [TestMethod]
+        public void GetStylists_FindsAllStylistsInDatabase_StylistList()
+        {
+            Client testClass = new Client("Cuts");
+            testClass.Save();
+
+            Stylist testStylist = new Stylist("Betty");
+            testStylist.Save();
+
+            testClass.AddStylist(testStylist);
+
+            Assert.AreEqual(testStylist, testClass.GetStylists()[0]);
+        }
+
+        [TestMethod]
+        public void AddStylist_LinksSpecialtyWithStylist_Specialty()
+        {
+            Client testClass = new Client("Warlock");
+            testClass.Save();
+
+            Stylist testStylist = new Stylist("Betty");
+            testStylist.Save();
+
+            testClass.AddStylist(testStylist);
+
+            Assert.AreEqual(testStylist, testClass.GetStylists()[0]);
+        }
     }
 }
