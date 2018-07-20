@@ -137,6 +137,31 @@ namespace HairSalon.Models
             return allClients;
         }
 
+        public void AddStylist(Stylist newStylist)
+        {
+            MySqlConnection conn = DB.Connection();
+            conn.Open();
+            var cmd = conn.CreateCommand() as MySqlCommand;
+            cmd.CommandText = @"INSERT INTO stylists_clients (client_id, stylist_id) VALUES (@ClientId, @StylistId);";
+
+            MySqlParameter client_id = new MySqlParameter();
+            client_id.ParameterName = "@ClientId";
+            client_id.Value = Id;
+            cmd.Parameters.Add(client_id);
+
+            MySqlParameter stylist_id = new MySqlParameter();
+            stylist_id.ParameterName = "@StylistId";
+            stylist_id.Value = newStylist.Id;
+            cmd.Parameters.Add(stylist_id);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            if (conn != null)
+            {
+                conn.Dispose();
+            }
+        }
+
         public List<Stylist> GetStylists()
         {
             MySqlConnection conn = DB.Connection();
@@ -175,13 +200,13 @@ namespace HairSalon.Models
             return stylists;
         }
 
-        public void Edit(string newName, int newStylistId)
+        public void Edit(string newName)
         {
             MySqlConnection conn = DB.Connection();
             conn.Open();
 
             var cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"UPDATE clients SET name = @newName WHERE id = @searchId; UPDATE stylists_clients SET stylist_id = @newStylistId WHERE client_id = @searchId;";
+            cmd.CommandText = @"UPDATE clients SET name = @newName WHERE id = @searchId;";
 
             MySqlParameter searchId = new MySqlParameter();
             searchId.ParameterName = "@searchId";
@@ -192,11 +217,6 @@ namespace HairSalon.Models
             name.ParameterName = "@newName";
             name.Value = newName;
             cmd.Parameters.Add(name);
-
-            MySqlParameter stylistId = new MySqlParameter();
-            stylistId.ParameterName = "@newStylistId";
-            stylistId.Value = newStylistId;
-            cmd.Parameters.Add(stylistId);
 
             cmd.ExecuteNonQuery();
             this.Name = newName;

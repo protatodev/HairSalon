@@ -21,9 +21,10 @@
                 <input type="text" name="new-name" value="@Model.Name" required>
             </div>
             <div class="form-group">
-                <label for="name">Select New Stylist</label>
-                <select name="stylist" required>
-                    @foreach (var stylist in Model.GetStylistList())
+                <h6>(Optional) Add New Stylist</h6>
+                <select name="newStylistId">
+                    <option value=0>None</option>
+                    @foreach (var stylist in Model.GetAllStylists())
                     {
                         <option value="@stylist.Id">@stylist.Name</option>
                     }

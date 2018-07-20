@@ -19,7 +19,7 @@
         <h5><strong>Stylists:</strong></h5>
         @foreach (var stylist in Model.GetStylists())
         {
-            <a href="~/stylist/@stylist.id/details"><p>@stylist.Name</p></a>
+            <a href="~/stylist/@stylist.Id/details"><p>@stylist.Name</p></a>
         }
         <hr />
         <a href="/specialty/@Model.Id/update" type="button" class="btn btn-primary">Edit</a>
